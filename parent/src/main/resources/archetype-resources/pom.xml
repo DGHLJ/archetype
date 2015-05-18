@@ -776,6 +776,18 @@
 </plugins>
 		<pluginManagement>
 			<plugins>
+				<plugin>
+					<groupId>com.github.s4u.plugins</groupId>
+					<artifactId>pgpverify-maven-plugin</artifactId>
+					<version>1.0.0</version>
+					<executions>
+						<execution>
+							<goals>
+								<goal>check</goal>
+							</goals>
+						</execution>
+					</executions>
+				</plugin>
 				<!-- android plugin -->
 				<plugin>
 					<groupId>com.jayway.maven.plugins.android.generation2</groupId>
