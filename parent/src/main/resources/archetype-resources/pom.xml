@@ -394,21 +394,27 @@
 	<build>
 		<plugins>
 			<!-- General Settings -->
-            <!-- Code Coverage -->
-            <!-- Don't forget to add a Jenkins
-                "Post-build Actions->Folders or files
-                containing JaCoCo XML reports:"
-                    **/target/site/jacoco/jacoco*.xml
-              -->
+			<!-- verify sigs of dependencies -->
+			<plugin>
+				<groupId>com.github.s4u.plugins</groupId>
+				<artifactId>pgpverify-maven-plugin</artifactId>
+			</plugin>
+			
+			<!-- Code Coverage -->
+			<!-- Don't forget to add a Jenkins
+				"Post-build Actions->Folders or files
+				containing JaCoCo XML reports:"
+				**/target/site/jacoco/jacoco*.xml
+			-->
 			<plugin>
 
 				<groupId>org.jacoco</groupId>
 				<artifactId>jacoco-maven-plugin</artifactId>
 				<version>${jacoco.version}</version>
 				<configuration>
-                            <dataFile>${project.build.directory}/jacoco.exec</dataFile>
-                             <outputDirectory>${project.build.directory}/jacoco-ut</outputDirectory>
-                        </configuration>
+					<dataFile>${project.build.directory}/jacoco.exec</dataFile>
+					<outputDirectory>${project.build.directory}/jacoco-ut</outputDirectory>
+				</configuration>
 				<executions>
 					<execution>
 						<goals>
@@ -776,6 +782,7 @@
 </plugins>
 		<pluginManagement>
 			<plugins>
+				<!-- verify sigs of dependencies -->
 				<plugin>
 					<groupId>com.github.s4u.plugins</groupId>
 					<artifactId>pgpverify-maven-plugin</artifactId>
